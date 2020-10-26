@@ -25,11 +25,14 @@ class _State extends State<CalculadoraPage> {
               padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
               child: Text(
                 '$_respuesta',
                 style: _estiloTexto,
               ),
+            ),
+            Divider(
+              height: 7.0,
             ),
             _crearInputs(),
           ],
@@ -71,7 +74,7 @@ class _State extends State<CalculadoraPage> {
               color: Colors.white,
             ),
           ),
-          onPressed: _Multiplicar,
+          onPressed: _Dividir,
         ),
       ],
     );
@@ -89,7 +92,6 @@ class _State extends State<CalculadoraPage> {
               labelText: 'Primer Valor'),
           onChanged: (valor) {
             calculadora.seta = double.parse(valor);
-            print(calculadora.geta);
           },
         ),
         Divider(
@@ -104,7 +106,6 @@ class _State extends State<CalculadoraPage> {
               labelText: 'Segundo Valor'),
           onChanged: (valor) {
             calculadora.setb = double.parse(valor);
-            print(calculadora.getb);
           },
         )
       ],
@@ -134,8 +135,8 @@ class _State extends State<CalculadoraPage> {
 
   void _Dividir() {
     setState(() {
-      double res = calculadora.geta / calculadora.getb;
-      _respuesta = res;
+      double long = calculadora.geta / calculadora.getb;
+      _respuesta = long;
     });
   }
 }
